@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>map sample</title>
+<title>ゴーゴーたかつきこどもしんぶんしゃWeb版</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -16,12 +16,16 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>ゴーゴーたかつきこどもしんぶんしゃ</h1>
+<h3>ゴーゴーたかつきこどもしんぶんしゃWeb版</h3>
 <div id="map"></div>
 </body>
 <style>
 #map { height: 600px; }
 </style>
+<script>
+var features = [];
+var places = [];
+</script>
 <script src="/js/heian.js"></script>
 <script src="/js/imamura.js"></script>
 <script>
@@ -33,10 +37,6 @@ var tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 	attribution: '© <a href="http://osm.org/copyright">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
 });
 tileLayer.addTo(map);
-
-var features = [];
-var places = heian;
-places = places.concat(imamura);
 
 // GeoJSON形式で複数個のマーカーを設定する
 setTimeout(function(){
