@@ -18,5 +18,11 @@ if(isset($filename) && file_exists(dirname(__FILE__) . "/" . $filename . ".csv")
 	$js[] = "];";
 	$js[] = "places = places.concat(" . $filename . ");";
 
-	file_put_contents(dirname(dirname(__FILE__)) . "/js/" . $filename . ".js", implode("\n", $js));
+	$jsDir = dirname(dirname(__FILE__)) . "/js/";
+	if(!file_exists($jsDir)) {
+		mkdir($jsDir);
+		file_put_contents($jsDir . ".gitignore", "*.js");
+	}
+
+	file_put_contents($jsDir . $filename . ".js", implode("\n", $js));
 }
