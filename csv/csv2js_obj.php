@@ -9,6 +9,9 @@ if(isset($filename) && file_exists(dirname(__FILE__) . "/" . $filename . ".csv")
 		if(!strlen($values[0])) continue;
 		$js[] = "	{";
 		$js[] = "		\"name\":\"" . trim(trim($values[0], "\"")) . "\",";
+
+		//カテゴリ
+		$js[] = "		\"category\":" . _getCategory($values[1]) . ",";
 		//緯度軽度
 		$js[] = "		\"lat\":" . trim(trim($values[2], "\"")) . ",";
 		$js[] = "		\"lng\":" . trim(trim($values[3], "\"")) . ",";
@@ -25,4 +28,22 @@ if(isset($filename) && file_exists(dirname(__FILE__) . "/" . $filename . ".csv")
 	}
 
 	file_put_contents($jsDir . $filename . ".js", implode("\n", $js));
+}
+
+function _getCategory($cat){
+	$cat = trim(trim($cat, "\""));
+	if(!strlen($cat)) return 0;
+
+	//毎回読み込む事にする
+	$lines = explode("\n", file_get_contents("./category.txt"));
+	foreach($lines as $idx => $line){
+		if(strpos($line, "*")) continue;
+		$categories = explode(",", $line);
+		foreach($categories as $category){
+			if($cat == trim($category)) return $idx - 2;	//category.txtの冒頭のコメント分を除いたindexを返す
+		}
+	}
+
+	//カテゴリ一覧から番号を付与
+	return 0;
 }
