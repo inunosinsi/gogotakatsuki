@@ -6,6 +6,8 @@ if(isset($filename) && file_exists(dirname(__FILE__) . "/" . $filename . ".csv")
 	$js[] = "var " . $filename . " = [";
 	foreach($lines as $line){
 		$values = _trimAllValue(explode(",", $line));
+
+		//緯度経度の情報がない場合はスルー
 		if(!strlen($values[0]) || !strlen($values[2]) || !strlen($values[3]) || !is_numeric($values[3])) continue;
 		$js[] = "	{";
 		$js[] = "		\"name\":\"" . $values[0] . "\",";
