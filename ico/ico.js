@@ -9,6 +9,22 @@ var parkIco = L.icon({
     popupAnchor: [0, -50],
 });
 
+var vehicleIco = L.icon({
+    iconUrl: './ico/vehicle.png',
+    iconRetinaUrl: './ico/vehicle.png',
+    iconSize: [iconW, iconH],
+    iconAnchor: [25, 50],
+    popupAnchor: [0, -50],
+});
+
+var trainIco = L.icon({
+    iconUrl: './ico/train.png',
+    iconRetinaUrl: './ico/train.png',
+    iconSize: [iconW, iconH],
+    iconAnchor: [25, 50],
+    popupAnchor: [0, -50],
+});
+
 var religionIco = L.icon({
     iconUrl: './ico/religion.png',
     iconRetinaUrl: './ico/religion.png',
@@ -20,6 +36,14 @@ var religionIco = L.icon({
 var haniwaIco = L.icon({
     iconUrl: './ico/haniwa.png',
     iconRetinaUrl: './ico/haniwa.png',
+    iconSize: [iconW, iconH],
+    iconAnchor: [25, 50],
+    popupAnchor: [0, -50],
+});
+
+var animalIco = L.icon({
+    iconUrl: './ico/animal.png',
+    iconRetinaUrl: './ico/animal.png',
     iconSize: [iconW, iconH],
     iconAnchor: [25, 50],
     popupAnchor: [0, -50],
@@ -76,6 +100,14 @@ var natureIco = L.icon({
 var publicIco = L.icon({
     iconUrl: './ico/public.png',
     iconRetinaUrl: './ico/public.png',
+    iconSize: [iconW, iconH],
+    iconAnchor: [25, 50],
+    popupAnchor: [0, -50],
+});
+
+var otherIco = L.icon({
+    iconUrl: './ico/other.png',
+    iconRetinaUrl: './ico/other.png',
     iconSize: [iconW, iconH],
     iconAnchor: [25, 50],
     popupAnchor: [0, -50],

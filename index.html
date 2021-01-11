@@ -115,13 +115,16 @@ setTimeout(function(){
 			switch(feature.properties.category){
 				case 1:	//公園
 					return L.marker( latlng, { icon: parkIco });
-				//case 2:	//乗り物
-				//case 3: //電車
+				case 2:	//乗り物
+					return L.marker( latlng, { icon: vehicleIco });
+				case 3: //電車
+					return L.marker( latlng, { icon: trainIco });
 				case 4:	//神社仏閣
 					return L.marker( latlng, { icon: religionIco });
 				case 5:	//はにわ、遺跡
 					return L.marker( latlng, { icon: haniwaIco });
-				//case 6: //動物
+				case 6: //動物
+					return L.marker( latlng, { icon: animalIco });
 				case 7:	//魚
 					return L.marker( latlng, { icon: fishIco });
 				case 8:	//鳥
@@ -135,12 +138,11 @@ setTimeout(function(){
 				case 12:	//山、川 etc
 					return L.marker( latlng, { icon: natureIco });
 				case 13:	//公共の建物　図書館や博物館
-					return L.marker( latlng, { icon: publicIco });
 				case 14:	//幼稚園
+					return L.marker( latlng, { icon: publicIco });
 				case 15:	//面白スポット、その他
 				default:
-					//アイコンなし
-					return L.marker( latlng);
+					return L.marker( latlng, { icon: otherIco });
 			}
 		}
 	}).addTo(map);
