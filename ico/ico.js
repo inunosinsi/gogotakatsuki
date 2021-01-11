@@ -25,6 +25,46 @@ var haniwaIco = L.icon({
     popupAnchor: [0, -50],
 });
 
+var fishIco = L.icon({
+    iconUrl: './ico/fish.png',
+    iconRetinaUrl: './ico/fish.png',
+    iconSize: [iconW, iconH],
+    iconAnchor: [25, 50],
+    popupAnchor: [0, -50],
+});
+
+var birdIco = L.icon({
+    iconUrl: './ico/bird.png',
+    iconRetinaUrl: './ico/bird.png',
+    iconSize: [iconW, iconH],
+    iconAnchor: [25, 50],
+    popupAnchor: [0, -50],
+});
+
+var insectIco = L.icon({
+    iconUrl: './ico/insect.png',
+    iconRetinaUrl: './ico/insect.png',
+    iconSize: [iconW, iconH],
+    iconAnchor: [25, 50],
+    popupAnchor: [0, -50],
+});
+
+var plantIco = L.icon({
+    iconUrl: './ico/plant.png',
+    iconRetinaUrl: './ico/plant.png',
+    iconSize: [iconW, iconH],
+    iconAnchor: [25, 50],
+    popupAnchor: [0, -50],
+});
+
+var acornIco = L.icon({
+    iconUrl: './ico/acorn.png',
+    iconRetinaUrl: './ico/acorn.png',
+    iconSize: [iconW, iconH],
+    iconAnchor: [25, 50],
+    popupAnchor: [0, -50],
+});
+
 var natureIco = L.icon({
     iconUrl: './ico/nature.png',
     iconRetinaUrl: './ico/nature.png',

@@ -62,6 +62,7 @@ var places = [];
 </script>
 <script src="/ico/ico.js"></script>
 <script src="/js/heian.js"></script>
+<script src="/js/hiyoshi.js"></script>
 <script src="/js/imamura.js"></script>
 <script src="/js/maria.js"></script>
 <script src="/js/nobiteyuku.js"></script>
@@ -114,14 +115,29 @@ setTimeout(function(){
 			switch(feature.properties.category){
 				case 1:	//公園
 					return L.marker( latlng, { icon: parkIco });
+				//case 2:	//乗り物
+				//case 3: //電車
 				case 4:	//神社仏閣
 					return L.marker( latlng, { icon: religionIco });
 				case 5:	//はにわ、遺跡
 					return L.marker( latlng, { icon: haniwaIco });
-				case 8:	//山、川 etc
-						return L.marker( latlng, { icon: natureIco });
-				case 9:	//公共の建物　図書館や博物館
+				//case 6: //動物
+				case 7:	//魚
+					return L.marker( latlng, { icon: fishIco });
+				case 8:	//鳥
+					return L.marker( latlng, { icon: birdIco });
+				case 9:		//昆虫
+					return L.marker( latlng, { icon: insectIco });
+				case 10: //植物
+					return L.marker( latlng, { icon: plantIco });
+				case 11:	//どんぐり
+					return L.marker( latlng, { icon: acornIco });
+				case 12:	//山、川 etc
+					return L.marker( latlng, { icon: natureIco });
+				case 13:	//公共の建物　図書館や博物館
 					return L.marker( latlng, { icon: publicIco });
+				case 14:	//幼稚園
+				case 15:	//面白スポット、その他
 				default:
 					//アイコンなし
 					return L.marker( latlng);
