@@ -43,7 +43,7 @@ body{
 }
 @media screen and (max-width:480px) {
 	.logo {
-		left: 85%;
+		left: 75%;
 	}
 }
 </style>
@@ -52,7 +52,7 @@ body{
 <div id="wrapper">
 	<div id="map"></div>
 	<div class="logo">
-		<a href="https://www.youtube.com/watch?v=mgISm6i0Y8k&feature=youtu.be" target="_blank" rel="noopener"><img src="/img/youtube_social_squircle_red.png" alt="youtube" width="32px"></a>
+		<a href="https://www.youtube.com/watch?v=mgISm6i0Y8k&feature=youtu.be" target="_blank" rel="noopener"><img src="/img/logo.png" alt="ゴーゴーたかつきこどもしんぶんしゃ" width="70"></a>
 	</div>
 </div>
 </body>
@@ -63,6 +63,8 @@ var places = [];
 <script src="/ico/ico.js"></script>
 <script src="/js/heian.js"></script>
 <script src="/js/imamura.js"></script>
+<script src="/js/maria.js"></script>
+<script src="/js/nobiteyuku.js"></script>
 <script>
 var map = L.map('map', {
 	center: [34.8516702,135.6177386],
@@ -112,11 +114,13 @@ setTimeout(function(){
 			switch(feature.properties.category){
 				case 1:	//公園
 					return L.marker( latlng, { icon: parkIco });
-				case 2:	//遊具
-					return L.marker( latlng, { icon: playIco });
-				case 5:	//はにわ、遺跡
+				case 3:	//神社仏閣
+					return L.marker( latlng, { icon: religionIco });
+				case 4:	//はにわ、遺跡
 					return L.marker( latlng, { icon: haniwaIco });
-				case 9:	//公共の建物　図書館や博物館
+				case 7:	//山、川 etc
+						return L.marker( latlng, { icon: natureIco });
+				case 8:	//公共の建物　図書館や博物館
 					return L.marker( latlng, { icon: publicIco });
 				default:
 					//アイコンなし

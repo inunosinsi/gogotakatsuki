@@ -1,15 +1,18 @@
+var iconW = 50;
+var iconH = 50;
+
 var parkIco = L.icon({
     iconUrl: './ico/park.png',
     iconRetinaUrl: './ico/park.png',
-    iconSize: [60, 60],
+    iconSize: [iconW, iconH],
     iconAnchor: [25, 50],
     popupAnchor: [0, -50],
 });
 
-var playIco = L.icon({
-    iconUrl: './ico/play.png',
-    iconRetinaUrl: './ico/play.png',
-    iconSize: [60, 60],
+var religionIco = L.icon({
+    iconUrl: './ico/religion.png',
+    iconRetinaUrl: './ico/religion.png',
+    iconSize: [iconW, iconH],
     iconAnchor: [25, 50],
     popupAnchor: [0, -50],
 });
@@ -17,7 +20,15 @@ var playIco = L.icon({
 var haniwaIco = L.icon({
     iconUrl: './ico/haniwa.png',
     iconRetinaUrl: './ico/haniwa.png',
-    iconSize: [60, 60],
+    iconSize: [iconW, iconH],
+    iconAnchor: [25, 50],
+    popupAnchor: [0, -50],
+});
+
+var natureIco = L.icon({
+    iconUrl: './ico/nature.png',
+    iconRetinaUrl: './ico/nature.png',
+    iconSize: [iconW, iconH],
     iconAnchor: [25, 50],
     popupAnchor: [0, -50],
 });
@@ -25,7 +36,7 @@ var haniwaIco = L.icon({
 var publicIco = L.icon({
     iconUrl: './ico/public.png',
     iconRetinaUrl: './ico/public.png',
-    iconSize: [60, 60],
+    iconSize: [iconW, iconH],
     iconAnchor: [25, 50],
     popupAnchor: [0, -50],
 });
