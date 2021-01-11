@@ -114,13 +114,13 @@ setTimeout(function(){
 			switch(feature.properties.category){
 				case 1:	//公園
 					return L.marker( latlng, { icon: parkIco });
-				case 3:	//神社仏閣
+				case 4:	//神社仏閣
 					return L.marker( latlng, { icon: religionIco });
-				case 4:	//はにわ、遺跡
+				case 5:	//はにわ、遺跡
 					return L.marker( latlng, { icon: haniwaIco });
-				case 7:	//山、川 etc
+				case 8:	//山、川 etc
 						return L.marker( latlng, { icon: natureIco });
-				case 8:	//公共の建物　図書館や博物館
+				case 9:	//公共の建物　図書館や博物館
 					return L.marker( latlng, { icon: publicIco });
 				default:
 					//アイコンなし
