@@ -5,17 +5,17 @@ if(isset($filename) && file_exists(dirname(__FILE__) . "/" . $filename . ".csv")
 	$js = array();
 	$js[] = "var " . $filename . " = [";
 	foreach($lines as $line){
-		$values = explode(",", $line);
-		if(!strlen($values[0])) continue;
+		$values = _trimAllValue(explode(",", $line));
+		if(!strlen($values[0]) || !strlen($values[2]) || !strlen($values[3]) || !is_numeric($values[3])) continue;
 		$js[] = "	{";
-		$js[] = "		\"name\":\"" . trim(trim($values[0], "\"")) . "\",";
+		$js[] = "		\"name\":\"" . $values[0] . "\",";
 
 		//カテゴリ
 		$js[] = "		\"category\":" . _getCategory($values[1]) . ",";
 		//緯度軽度
-		$js[] = "		\"lat\":" . trim(trim($values[2], "\"")) . ",";
-		$js[] = "		\"lng\":" . trim(trim($values[3], "\"")) . ",";
-		$js[] = "		\"url\":\"" . trim(trim($values[4], "\"")) . "\",";
+		$js[] = "		\"lat\":" . $values[2] . ",";
+		$js[] = "		\"lng\":" . $values[3] . ",";
+		$js[] = "		\"url\":\"" . $values[4] . "\",";
 		$js[] = "	},";
 	}
 	$js[] = "];";
@@ -31,7 +31,6 @@ if(isset($filename) && file_exists(dirname(__FILE__) . "/" . $filename . ".csv")
 }
 
 function _getCategory($cat){
-	$cat = trim(trim($cat, "\""));
 	if(!strlen($cat)) return 0;
 
 	//毎回読み込む事にする
@@ -46,4 +45,11 @@ function _getCategory($cat){
 
 	//カテゴリ一覧から番号を付与
 	return 0;
+}
+
+function _trimAllValue($values){
+	for($i = 0; $i < count($values); $i++){
+		$values[$i] = trim(trim($values[$i], "\""));
+	}
+	return $values;
 }
