@@ -68,7 +68,6 @@ body{
 </body>
 <script>
 var features = [];
-var places = [];
 </script>
 <script src="/ico/ico.js"></script>
 <script src="/js/heian.js"></script>
@@ -87,75 +86,59 @@ var tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 tileLayer.addTo(map);
 
 // GeoJSON形式で複数個のマーカーを設定する
-setTimeout(function(){
-	for (var i = 0; i < places.length; i++) {
-		features.push({
-			"type": "Feature",
-			"properties": {
-				"name": places[i].name,
-				"url" : places[i].url,
-				"category": places[i].category
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [places[i].lng, places[i].lat]
-			}
-		});
-	}
-	L.geoJson(features, {
-		onEachFeature: function(features, layer) {
-			if (features.properties && features.properties.name) {
-				layer.bindPopup(features.properties.name);
-				layer.on('mouseover', function(e) {
-					this.openPopup();
-				});
-				layer.on('mouseout', function(e) {
-					this.closePopup();
-				});
-				layer.on('click', function(e) {
-					window.open(features.properties.url, '_blank');
-				});
-				layer.on('tap', function(e) {
-					window.open(features.properties.url, '_blank');
-				});
-			}
-		},
-		// アイコン
-		pointToLayer: function( feature, latlng ) {
-			switch(feature.properties.category){
-				case 1:	//公園
-					return L.marker( latlng, { icon: parkIco });
-				case 2:	//乗り物
-					return L.marker( latlng, { icon: vehicleIco });
-				case 3: //電車
-					return L.marker( latlng, { icon: trainIco });
-				case 4:	//神社仏閣
-					return L.marker( latlng, { icon: religionIco });
-				case 5:	//はにわ、遺跡
-					return L.marker( latlng, { icon: haniwaIco });
-				case 6: //動物
-					return L.marker( latlng, { icon: animalIco });
-				case 7:	//魚
-					return L.marker( latlng, { icon: fishIco });
-				case 8:	//鳥
-					return L.marker( latlng, { icon: birdIco });
-				case 9:		//昆虫
-					return L.marker( latlng, { icon: insectIco });
-				case 10: //植物
-					return L.marker( latlng, { icon: plantIco });
-				case 11:	//どんぐり
-					return L.marker( latlng, { icon: acornIco });
-				case 12:	//山、川 etc
-					return L.marker( latlng, { icon: natureIco });
-				case 13:	//公共の建物　図書館や博物館
-				case 14:	//幼稚園
-					return L.marker( latlng, { icon: publicIco });
-				case 15:	//面白スポット、その他
-				default:
-					return L.marker( latlng, { icon: otherIco });
-			}
+L.geoJson(features, {
+	onEachFeature: function(features, layer) {
+		if (features.properties && features.properties.name) {
+			layer.bindPopup(features.properties.name);
+			layer.on('mouseover', function(e) {
+				this.openPopup();
+			});
+			layer.on('mouseout', function(e) {
+				this.closePopup();
+			});
+			layer.on('click', function(e) {
+				window.open(features.properties.url, '_blank');
+			});
+			layer.on('tap', function(e) {
+				window.open(features.properties.url, '_blank');
+			});
 		}
-	}).addTo(map);
-}, 100);
+	},
+	// アイコン
+	pointToLayer: function( feature, latlng ) {
+		switch(feature.properties.category){
+			case 1:	//公園
+				return L.marker( latlng, { icon: parkIco });
+			case 2:	//乗り物
+				return L.marker( latlng, { icon: vehicleIco });
+			case 3: //電車
+				return L.marker( latlng, { icon: trainIco });
+			case 4:	//神社仏閣
+				return L.marker( latlng, { icon: religionIco });
+			case 5:	//はにわ、遺跡
+				return L.marker( latlng, { icon: haniwaIco });
+			case 6: //動物
+				return L.marker( latlng, { icon: animalIco });
+			case 7:	//魚
+				return L.marker( latlng, { icon: fishIco });
+			case 8:	//鳥
+				return L.marker( latlng, { icon: birdIco });
+			case 9:		//昆虫
+				return L.marker( latlng, { icon: insectIco });
+			case 10: //植物
+				return L.marker( latlng, { icon: plantIco });
+			case 11:	//どんぐり
+				return L.marker( latlng, { icon: acornIco });
+			case 12:	//山、川 etc
+				return L.marker( latlng, { icon: natureIco });
+			case 13:	//公共の建物　図書館や博物館
+			case 14:	//幼稚園
+				return L.marker( latlng, { icon: publicIco });
+			case 15:	//面白スポット、その他
+			default:
+				return L.marker( latlng, { icon: otherIco });
+		}
+	}
+}).addTo(map);
 
 </script>

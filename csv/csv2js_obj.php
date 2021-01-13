@@ -10,18 +10,20 @@ if(isset($filename) && file_exists(dirname(__FILE__) . "/" . $filename . ".csv")
 		//緯度経度の情報がない場合はスルー
 		if(!strlen($values[0]) || !strlen($values[2]) || !strlen($values[3]) || !is_numeric($values[3])) continue;
 		$js[] = "	{";
-		$js[] = "		\"name\":\"" . $values[0] . "\",";
-
-		//カテゴリ
-		$js[] = "		\"category\":" . _getCategory($values[1]) . ",";
-		//緯度軽度
-		$js[] = "		\"lat\":" . $values[2] . ",";
-		$js[] = "		\"lng\":" . $values[3] . ",";
-		$js[] = "		\"url\":\"" . $values[4] . "\",";
+		$js[] = "		\"type\":\"Feature\",";
+		$js[] = "		\"properties\":{";
+		$js[] = "			\"name\":\"" . $values[0] . "\",";
+		$js[] = "			\"url\":\"" . $values[4] . "\",";
+		$js[] = "			\"category\":" . _getCategory($values[1]) . ",";
+		$js[] = "		},";
+		$js[] = "		\"geometry\":{";
+		$js[] = "			\"type\":\"Point\",";
+		$js[] = "			\"coordinates\":[" . $values[3] . "," . $values[2] . "]";
+		$js[] = "		}";
 		$js[] = "	},";
 	}
 	$js[] = "];";
-	$js[] = "places = places.concat(" . $filename . ");";
+	$js[] = "features = features.concat(" . $filename . ");";
 
 	$jsDir = dirname(dirname(__FILE__)) . "/js/";
 	if(!file_exists($jsDir)) {
