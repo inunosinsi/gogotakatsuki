@@ -13,7 +13,7 @@ if(isset($filename) && file_exists(dirname(__FILE__) . "/" . $filename . ".csv")
 		$js[] = "		\"type\":\"Feature\",";
 		$js[] = "		\"properties\":{";
 		$js[] = "			\"name\":\"" . $values[0] . "\",";
-		$js[] = "			\"url\":\"" . $values[4] . "\",";
+		$js[] = "			\"hash\":\"" . _getHash($values[4]) . "\",";
 		$js[] = "			\"category\":" . _getCategory($values[1]) . ",";
 		$js[] = "		},";
 		$js[] = "		\"geometry\":{";
@@ -32,6 +32,11 @@ if(isset($filename) && file_exists(dirname(__FILE__) . "/" . $filename . ".csv")
 	}
 
 	file_put_contents($jsDir . $filename . ".js", implode("\n", $js));
+}
+
+function _getHash($url){
+	$url = substr($url, 0, strrpos($url, "/"));
+	return trim(trim(substr($url, strrpos($url, "/")), "/"));
 }
 
 function _getCategory($cat){
