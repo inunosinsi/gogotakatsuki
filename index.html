@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <title>ゴーゴーたかつきこどもしんぶんしゃWeb版</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta property="og:url" content="http://gogotakatuki.html.xdomain.jp/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ゴーゴーたかつきこども新聞社Web版">
+<meta property="og:description" content="高槻市私立幼稚園PTA連合会 第15回秋の合同行事「ゴーゴーたかつきこども新聞社」の新聞のWeb版です">
+<meta property="og:site_name" content="ゴーゴーたかつきこども新聞社Web版">
+<meta property="og:image" content="http://gogotakatuki.html.xdomain.jp/img/gogotakatsuki_logo.jpg">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
 	 integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
 	 crossorigin=""/>
@@ -67,14 +73,23 @@ body{
 </div>
 </body>
 <script>
+var gDriveUrl = "https://drive.google.com/file/d/";
+var gDrivePostfix = "/view";
 var features = [];
+
+//GETパラメータ k=幼稚園、c=分類
+var params = {k:null,c:null};
 </script>
+<script src="/js/params.js"></script>
 <script src="/ico/ico.js"></script>
+<script src="/js/aoitori.js"></script>
 <script src="/js/heian.js"></script>
 <script src="/js/hiyoshi.js"></script>
+<script src="/js/hutaba.js"></script>
 <script src="/js/imamura.js"></script>
 <script src="/js/maria.js"></script>
 <script src="/js/nobiteyuku.js"></script>
+<script src="/js/takatsuki.js"></script>
 <script>
 var map = L.map('map', {
 	center: [34.8516702,135.6177386],
@@ -97,10 +112,10 @@ L.geoJson(features, {
 				this.closePopup();
 			});
 			layer.on('click', function(e) {
-				window.open(features.properties.url, '_blank');
+				window.open(gDriveUrl + features.properties.hash + gDrivePostfix, '_blank');
 			});
 			layer.on('tap', function(e) {
-				window.open(features.properties.url, '_blank');
+				window.open(gDriveUrl + features.properties.hash + gDrivePostfix, '_blank');
 			});
 		}
 	},

@@ -1,5 +1,5 @@
 <?php
-$filename = (isset($argv[1])) ? htmlspecialchars($argv[1], ENT_QUOTES, "UTF-8") : null;
+$filename = (isset($argv[1])) ? trim(htmlspecialchars(str_replace(".csv", "", $argv[1]), ENT_QUOTES, "UTF-8")) : null;
 if(isset($filename) && file_exists(dirname(__FILE__) . "/" . $filename . ".csv")){
 	$lines = explode("\n", file_get_contents("./" . $filename . ".csv"));
 	$js = array();
@@ -23,7 +23,7 @@ if(isset($filename) && file_exists(dirname(__FILE__) . "/" . $filename . ".csv")
 		$js[] = "	},";
 	}
 	$js[] = "];";
-	$js[] = "features = features.concat(" . $filename . ");";
+	$js[] = "if(params.k == null || (params.k != null &&params.k == \"" . $filename . "\")) features = features.concat(" . $filename . ");";
 
 	$jsDir = dirname(dirname(__FILE__)) . "/js/";
 	if(!file_exists($jsDir)) {
